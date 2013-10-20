@@ -100,3 +100,24 @@ test('parse pair args', function(t) {
     t.end();
     
 });
+
+test('parse pair array arg', function(t) {
+
+    var ast = parse("foo bar: [ 1 , [2,3,4] , 4 ] ");
+
+    t.ok(ast[0].args.length === 1);
+
+    t.ok(ast[0].args[0].value.type === 'array');
+    t.deepEquals([
+        { type: 'bare', text: '1' },
+        { type: 'array', values: [
+            { type: 'bare', text: '2' },
+            { type: 'bare', text: '3' },
+            { type: 'bare', text: '4' }
+        ] },
+        { type: 'bare', text: '4' }
+    ], ast[0].args[0].value.values);
+
+    t.end();
+
+});
