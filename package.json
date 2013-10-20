@@ -1,6 +1,6 @@
 {
   "name": "swizzle-parser",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Parser component of swizzle-term",
   "main": "index.js",
   "scripts": {
